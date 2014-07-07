@@ -1,0 +1,9 @@
+---
+pid: /var/vcap/sys/run/uaa.pid
+varz:
+  username: 13378-27444-9508-4434
+  password: 14012-8601-26643-22389
+  type: uaa
+
+logging:
+  config: /var/vcap/jobs/uaa/config/varz.log4j.properties

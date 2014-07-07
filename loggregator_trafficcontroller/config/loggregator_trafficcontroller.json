@@ -1,0 +1,24 @@
+{
+    "Loggregators": {"default":["192.168.64.142"]},
+    "LoggregatorIncomingPort": 3456,
+    "LoggregatorOutgoingPort": 38080,
+    "IncomingPort": 13456,
+    "OutgoingPort": 48080,
+    "SkipCertVerify": true,
+    "SharedSecret": "c1oudc0w",
+    "Zone": "default",
+    "Host": "0.0.0.0",
+    "ApiHost": "https://api.192.168.64.142.xip.io",
+    "SystemDomain": "192.168.64.142.xip.io",
+
+    "NatsHosts": ["192.168.64.142"],
+    "NatsPort": 4222,
+    "NatsUser": "nats",
+    "NatsPass": "c1oudc0w",
+    "VarzUser": "trafic_controller",
+    "VarzPass": "c1oudc0w",
+    "VarzPort": 6789
+    
+    , "Syslog": "vcap.trafficcontroller"
+    
+}

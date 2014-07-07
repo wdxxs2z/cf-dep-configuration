@@ -1,0 +1,64 @@
+---
+name: gorouter
+templates:
+  gorouter_ctl.erb: bin/gorouter_ctl
+  gorouter.yml.erb: config/gorouter.yml
+  gorouter_logrotate.cron.erb: config/gorouter_logrotate.cron
+  syslog_forwarder.conf.erb: config/syslog_forwarder.conf
+  logrotate.conf.erb: config/logrotate.conf
+  drain: bin/drain
+packages:
+  - common
+  - golang
+  - gorouter
+  - syslog_aggregator
+properties:
+  syslog_aggregator.address:
+    description: "IP address for syslog aggregator."
+  syslog_aggregator.port:
+    description: "TCP port of syslog aggregator."
+  syslog_aggregator.all:
+    description: "Define whether forwarders should send all their syslog data to our aggregator."
+    default: false
+  syslog_aggregator.transport:
+    description: "Transport to be used when forwarding logs (tcp|udp|relp)."
+    default: "tcp"
+
+  router.port:
+    description: "Listening Port for Router."
+    default: 80
+  router.status.port:
+    description: "Port for the Router varz/status endpoint."
+    default: 8080
+  router.status.user:
+    description: "Username for HTTP basic auth to the varz/status endpoint."
+  router.status.password:
+    description: "Password for HTTP basic auth to the varz/status endpoint."
+  nats.user:
+    description:
+  nats.password:
+    description:
+  nats.port:
+    description:
+  nats.machines:
+    description: "IP of each NATS cluster member."
+  router.offset:
+    description:
+    default: 0
+  router.trace_key:
+    description:
+      If the X-Vcap-Trace request header is set and has this value,
+      trace headers are added to the response.
+    default: 22
+  request_timeout_in_seconds:
+    description: "Timeout in seconds for Router -> Endpoint roundtrip."
+    default: 300
+  loggregator_endpoint.host:
+    description: "The host used to emit messages to the Loggregator."
+  loggregator_endpoint.port:
+    description: "The port used to emit messages to the Loggregator."
+    default: 3456
+  loggregator_endpoint.shared_secret:
+    description: "The key used to sign log messages."
+  networks.apps:
+    description: "GoRouter network information."

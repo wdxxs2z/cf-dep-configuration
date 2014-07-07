@@ -1,0 +1,16 @@
+{
+	"Index": 0,
+	"LoggregatorAddress": "192.168.64.142:3456",
+        "SharedSecret": "c1oudc0w",
+
+	  "NatsHosts": ["192.168.64.142"],
+  	"NatsPort": 4222,
+  	"NatsUser": "nats",
+  	"NatsPass": "c1oudc0w",
+  	"VarzUser": "",
+  	"VarzPass": "",
+  	"VarzPort": 0
+    
+    , "Syslog": "vcap.dea_logging_agent"
+    
+}  

@@ -1,0 +1,20 @@
+---
+logging:
+  file: /var/vcap/sys/log/uaa/cf-registrar.log
+  
+  level: info
+
+message_bus_servers:
+
+  - nats://nats:c1oudc0w@192.168.64.142:4222
+
+
+uri:
+  - uaa.192.168.64.142.xip.io
+host: 192.168.64.142
+index: 0
+port: 8080
+tags:
+  component: uaa
+varz:
+  file: /var/vcap/jobs/uaa/config/varz.yml

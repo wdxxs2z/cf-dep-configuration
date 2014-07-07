@@ -1,0 +1,2 @@
+
+*/5 * * * * test -x /usr/sbin/logrotate && /usr/sbin/logrotate /var/vcap/jobs/gorouter/config/logrotate.conf >>/var/vcap/sys/log/gorouter/gorouter_logrotate_cron.log 2>&1

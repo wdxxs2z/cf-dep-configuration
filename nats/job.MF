@@ -1,0 +1,47 @@
+---
+name: nats
+templates:
+  nats_ctl.erb: bin/nats_ctl
+  nats.conf.erb: config/nats.conf
+  syslog_forwarder.conf.erb: config/syslog_forwarder.conf
+packages:
+  - common
+  - gnatsd
+  - syslog_aggregator
+properties:
+  syslog_aggregator.address:
+    description: "IP address for syslog aggregator"
+  syslog_aggregator.port:
+    description: "TCP port of syslog aggregator"
+  syslog_aggregator.all:
+    description: "Define whether forwarders should send all their syslog data to our aggregator."
+    default: false
+  syslog_aggregator.transport:
+    description: "Transport to be used when forwarding logs (tcp|udp|relp)."
+    default: "tcp"
+
+  networks.apps:
+    description: "NATS network information"
+  nats.user:
+    description: "Username for server authentication."
+  nats.password:
+    description: "Password for server authentication."
+  nats.port:
+    description: "The port for the NATS server to listen on."
+  nats.authorization_timeout:
+    description: "After accepting a connection, wait up to this many seconds for credentials."
+    default: 15
+  nats.machines:
+    description: "IP of each NATS cluster member."
+  nats.debug:
+    description: "Enable debug logging output."
+    default: false
+  nats.trace:
+    description: "Enable trace logging output."
+    default: false
+  nats.monitor_port:
+    description: "Port for varz and connz monitoring. 0 means disabled."
+    default: 0
+  nats.prof_port:
+    description: "Port for pprof. 0 means disabled."
+    default: 0

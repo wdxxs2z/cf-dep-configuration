@@ -1,0 +1,23 @@
+
+{
+  "EtcdUrls": ["http://192.168.64.142:4001"],
+  "EtcdMaxConcurrentRequests" : 10,
+  "IncomingPort": 3456,
+  "OutgoingPort": 38080,
+  "SkipCertVerify": true,
+  "Index": 0,
+  "MaxRetainedLogMessages": 100,
+  "SharedSecret": "c1oudc0w",
+
+  "NatsHosts": ["192.168.64.142"],
+  "NatsPort": 4222,
+  "NatsUser": "nats",
+  "NatsPass": "c1oudc0w",
+  "VarzUser": "loggregator",
+  "VarzPass": "c1oudc0w",
+  "VarzPort": 5768
+    
+    , "Syslog": "vcap.loggregator"
+    
+    
+}

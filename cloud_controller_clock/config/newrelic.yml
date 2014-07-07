@@ -1,0 +1,33 @@
+development: &common_settings
+  license_key: ''
+  app_name: 'Cloud Controller (development)'
+  developer_mode: false
+  monitor_mode: false
+  log_level: info
+  log_file_path: '/var/vcap/sys/log/cloud_controller_ng/newrelic'
+  log_file_name: development.log
+
+  browser_monitoring:
+    auto_instrument: false
+
+  audit_log:
+    enabled: false
+
+  capture_params: false
+
+  transaction_tracer:
+    enabled: false
+    record_sql: off
+    transaction_threshold: apdex_f
+    stack_trace_threshold: 0.500
+
+  error_collector:
+    enabled: true
+    capture_source: true
+    ignore_errors: "VCAP::Errors::NotStaged"
+
+development_background:
+  <<: *common_settings
+  log_file_name: development_background.log
+  transaction_tracer:
+    enabled: false

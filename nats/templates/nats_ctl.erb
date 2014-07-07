@@ -1,0 +1,43 @@
+#!/bin/bash
+
+JOB_DIR=/var/vcap/jobs/nats
+RUN_DIR=/var/vcap/sys/run/nats
+LOG_DIR=/var/vcap/sys/log/nats
+PIDFILE=$RUN_DIR/nats.pid
+CONFIG_DIR=$JOB_DIR/config
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE "NATS"
+
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    /var/vcap/packages/syslog_aggregator/setup_syslog_forwarder.sh $CONFIG_DIR
+
+    # Avoid Neighbour table overflow
+    sysctl -w net.ipv4.neigh.default.gc_thresh3=4096
+    sysctl -w net.ipv4.neigh.default.gc_thresh2=2048
+    sysctl -w net.ipv4.neigh.default.gc_thresh1=1024
+
+    exec /var/vcap/packages/gnatsd/bin/gnatsd \
+         -c /var/vcap/jobs/nats/config/nats.conf
+
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: nats_ctl {start|stop}"
+
+    ;;
+
+esac

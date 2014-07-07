@@ -1,0 +1,37 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/nats_stream_forwarder
+JOB_DIR=/var/vcap/jobs/nats_stream_forwarder
+BIN_DIR=$JOB_DIR/bin
+PIDFILE=$RUN_DIR/nats_stream_forwarder.pid
+export BUNDLE_GEMFILE=/var/vcap/packages/nats/nats/Gemfile
+export CONFIG_DIR=$JOB_DIR/config
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+  start)
+    pid_guard $PIDFILE "NATS Stream Forwarder"
+
+    mkdir -p $RUN_DIR
+
+    PATH=/var/vcap/packages/ruby/bin:$PATH
+
+    /var/vcap/packages/syslog_aggregator/setup_syslog_forwarder.sh $CONFIG_DIR
+
+    echo $$ > $PIDFILE
+    exec bundle exec $BIN_DIR/nats_stream_forwarder.rb 'nats://nats:c1oudc0w@192.168.64.142:4222'
+
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: nats_stream_forwarder_ctl {start|stop}"
+
+    ;;
+
+esac
