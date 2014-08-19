@@ -3,3 +3,4 @@ check process loggregator
   start program "/var/vcap/jobs/loggregator/bin/loggregator_ctl start"
   stop program "/var/vcap/jobs/loggregator/bin/loggregator_ctl stop"
   group vcap
+  mode manual
