@@ -3,3 +3,4 @@ check process loggregator_trafficcontroller
   start program "/var/vcap/jobs/loggregator_trafficcontroller/bin/loggregator_trafficcontroller_ctl start"
   stop program "/var/vcap/jobs/loggregator_trafficcontroller/bin/loggregator_trafficcontroller_ctl stop"
   group vcap
+  mode manual
