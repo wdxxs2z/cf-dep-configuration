@@ -3,5 +3,6 @@ check process cloud_controller_clock
   start program "/var/vcap/jobs/cloud_controller_clock/bin/cloud_controller_clock_ctl start"
   stop program "/var/vcap/jobs/cloud_controller_clock/bin/cloud_controller_clock_ctl stop"
   group vcap
+  mode manual
   if totalmem > 2250 Mb then alert
   if totalmem > 2450 Mb then restart
