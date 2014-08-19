@@ -4,6 +4,7 @@ check process hm9000_listener
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_listener_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_fetcher
   with pidfile /var/vcap/sys/run/hm9000/hm9000_fetcher.pid
@@ -11,6 +12,7 @@ check process hm9000_fetcher
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_fetcher_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_analyzer
   with pidfile /var/vcap/sys/run/hm9000/hm9000_analyzer.pid
@@ -18,6 +20,7 @@ check process hm9000_analyzer
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_analyzer_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_sender
   with pidfile /var/vcap/sys/run/hm9000/hm9000_sender.pid
@@ -25,6 +28,7 @@ check process hm9000_sender
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_sender_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_metrics_server
   with pidfile /var/vcap/sys/run/hm9000/hm9000_metrics_server.pid
@@ -32,6 +36,7 @@ check process hm9000_metrics_server
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_metrics_server_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_api_server
   with pidfile /var/vcap/sys/run/hm9000/hm9000_api_server.pid
@@ -39,6 +44,7 @@ check process hm9000_api_server
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_api_server_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_evacuator
   with pidfile /var/vcap/sys/run/hm9000/hm9000_evacuator.pid
@@ -46,6 +52,7 @@ check process hm9000_evacuator
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_evacuator_ctl stop"
   group vcap
+  mode manual
 
 check process hm9000_shredder
   with pidfile /var/vcap/sys/run/hm9000/hm9000_shredder.pid
@@ -53,3 +60,4 @@ check process hm9000_shredder
     with timeout 60 seconds
   stop program "/var/vcap/jobs/hm9000/bin/hm9000_shredder_ctl stop"
   group vcap
+  mode manual
