@@ -3,3 +3,4 @@ check process dea_logging_agent
   start program "/var/vcap/jobs/dea_logging_agent/bin/dea_logging_agent_ctl start"
   stop program "/var/vcap/jobs/dea_logging_agent/bin/dea_logging_agent_ctl stop"
   group vcap
+  mode manual
