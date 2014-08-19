@@ -11,12 +11,14 @@ check process warden
       with timeout 5 seconds for 5 cycles
   then restart
   group vcap
+  mode manual
 
 check process dea_next
   with pidfile /var/vcap/sys/run/dea_next/dea_next.pid
   start program "/var/vcap/jobs/dea_next/bin/dea_ctl start"
   stop program "/var/vcap/jobs/dea_next/bin/dea_ctl stop" with timeout 45 seconds
   group vcap
+  mode manual
   depends on warden
 
 check process dir_server
@@ -24,4 +26,5 @@ check process dir_server
   start program "/var/vcap/jobs/dea_next/bin/dir_server_ctl start"
   stop program "/var/vcap/jobs/dea_next/bin/dir_server_ctl stop"
   group vcap
+  mode manual
 
