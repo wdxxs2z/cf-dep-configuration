@@ -30,6 +30,7 @@ health_check_server:
   port: 2345
 
 logging:
+  file: /var/vcap/sys/log/warden/warden.log
   level: debug2
 
 network:
