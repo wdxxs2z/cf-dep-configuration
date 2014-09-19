@@ -4,6 +4,11 @@ RUN_DIR=/var/vcap/sys/run/dea_logging_agent
 LOG_DIR=/var/vcap/sys/log/dea_logging_agent
 PIDFILE=$RUN_DIR/dea_logging_agent.pid
 
+export LOGGREGATOR_SHARED_SECRET=c1oudc0w
+
+export DROPSONDE_ORIGIN=dea_logging_agent
+export DROPSONDE_DESTINATION=192.168.172.136:3457
+
 source /var/vcap/packages/common/utils.sh
 
 case $1 in
