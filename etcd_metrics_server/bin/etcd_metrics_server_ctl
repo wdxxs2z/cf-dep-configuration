@@ -1,0 +1,41 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/etcd_metrics_server
+PIDFILE=$RUN_DIR/etcd_metrics_server.pid
+WORK_DIR=/var/vcap/store/etcd_metrics_server
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE "etcd_metrics_server"
+
+    mkdir -p $RUN_DIR
+
+    chown -R vcap:vcap $RUN_DIR
+
+    echo $$ > $PIDFILE
+
+    exec chpst -u vcap:vcap /var/vcap/packages/etcd_metrics_server/bin/etcd-metrics-server \
+        -index=0 \
+        -etcdAddress=127.0.0.1:4001 \
+        -natsAddresses=192.168.172.136:4222 \
+        -natsUsername='nats' \
+        -natsPassword='c1oudc0w' \
+        -port=5678 \
+        -username= \
+        -password=
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}"
+
+    ;;
+
+esac

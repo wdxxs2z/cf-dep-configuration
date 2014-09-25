@@ -7,7 +7,7 @@ PIDFILE=$RUN_DIR/dea_logging_agent.pid
 export LOGGREGATOR_SHARED_SECRET=c1oudc0w
 
 export DROPSONDE_ORIGIN=dea_logging_agent
-export DROPSONDE_DESTINATION=192.168.172.136:3457
+export DROPSONDE_DESTINATION=127.0.0.1:3457
 
 source /var/vcap/packages/common/utils.sh
 

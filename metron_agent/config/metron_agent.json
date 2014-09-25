@@ -1,0 +1,24 @@
+{
+  "EtcdUrls": ["http://192.168.172.136:4001"],
+  "EtcdMaxConcurrentRequests": 10,
+  "SharedSecret": "c1oudc0w",
+  "LegacyIncomingMessagesPort": 3456,
+  "DropsondeIncomingMessagesPort": 3457,
+  "Index": 0,
+  "Job": "micro_ng",
+  "VarzUser": "trafic_controller",
+  "VarzPass": "c1oudc0w",
+  "VarzPort": 6799,
+  "NatsHosts": ["192.168.172.136"],
+  "NatsPort": 4222,
+  "NatsUser": "nats",
+  "NatsPass": "c1oudc0w",
+  "EtcdQueryIntervalMilliseconds": 5000,
+  "Zone": "default",
+  "LoggregatorLegacyPort": 13456,
+  "LoggregatorDropsondePort": 13457
+
+  
+  , "Syslog": "vcap.metron_agent"
+  
+}
